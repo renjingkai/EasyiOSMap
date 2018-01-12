@@ -1,5 +1,5 @@
 # 超好集成的EasyiOSMap-基于高德地图（界面优美，功能强大）
-![Alt text](https://github.com/chenyufeng1991/NewsClient/raw/master/Screenshots/2.png)
+![Alt text](https://github.com/renjingkai/EasyiOSMap/blob/master/screenshot.jpg)
 - 视频演示demo（如果不能下载，复制到浏览器地址栏播放）</br>
 http://www.ac-rxWgcQwd.clouddn.com/fbacc4da398ec86dbbd0.mp4
 - 使用方式：将ZXBMapViewController.h，ZXBMapViewController.m文件还有切图文件夹中的图标加入到项目
