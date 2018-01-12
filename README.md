@@ -9,7 +9,7 @@ pod 'AMapLocation'</br>
 pod 'AMapNavi'</br>
 pod 'SVProgressHUD'</br>
 - 由于定位和导航涉及到用户隐私，需要在plist中增加如下字段</br>
-\<\key\>\LSApplicationQueriesSchemes\<\/key\>\</br>
+&ltkey&gtLSApplicationQueriesSchemes\<\key\>\</br>
 <array></br>
 <string>iosamap</string></br>
 </array></br>
