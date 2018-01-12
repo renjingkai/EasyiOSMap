@@ -1,6 +1,6 @@
 # 超好集成的EasyiOSMap-基于高德地图（界面优美，功能强大）
-- 视频演示demo（如果不能下载，复制到浏览器播放）</br>
-http://ac-rxWgcQwd.clouddn.com/fbacc4da398ec86dbbd0.mp4
+- 视频演示demo（如果不能下载，复制到浏览器地址栏播放）</br>
+http://www.ac-rxWgcQwd.clouddn.com/fbacc4da398ec86dbbd0.mp4
 - 使用方式：将ZXBMapViewController.h和ZXBMapViewController.m文件加入到项目中即可
 - 注意Podfile的依赖</br>
 pod 'AMap3DMap'</br>
@@ -23,5 +23,5 @@ pod 'SVProgressHUD'</br>
 <string>App需要您的同意,才能在使用期间访问位置</string></br>
 
 - 一个项目的BundleID对应一个高德地图apiKey！</br>
-请在高德开放平台获取 http://lbs.amap.com/dev/key/app</br>
+请在高德开放平台获取 http://www.lbs.amap.com/dev/key/app</br>
 [AMapServices sharedServices].apiKey = @"你的key";
