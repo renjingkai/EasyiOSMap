@@ -174,6 +174,8 @@
 #pragma mark - 根据地址信息来搜索POI
 -(void)searchPOIWithKeyWordString:(NSString *)keyWordString{
     AMapPOIKeywordsSearchRequest *request = [[AMapPOIKeywordsSearchRequest alloc] init];
+#warning 一个项目的BundleID对应一个高德地图apiKey，请在高德开放平台获取 http://lbs.amap.com/dev/key/app
+    [AMapServices sharedServices].apiKey = @"你的key";
     [AMapServices sharedServices].apiKey = @"d0ee27ed683777fc6c34e9fad36bca5c";
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
