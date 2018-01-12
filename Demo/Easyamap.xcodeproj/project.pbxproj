@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73547C18494090226B70F1EC /* libPods-Easyamap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E78B765D1BF560327A39DCDA /* libPods-Easyamap.a */; };
+		A419B3492005EF2C00EE2599 /* ZXBMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A419B3482005EF2C00EE2599 /* ZXBMapViewController.m */; };
+		A4C50BA42005EDC000431C7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C50BA32005EDC000431C7A /* AppDelegate.m */; };
+		A4C50BA72005EDC000431C7A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C50BA62005EDC000431C7A /* ViewController.m */; };
+		A4C50BAA2005EDC000431C7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C50BA82005EDC000431C7A /* Main.storyboard */; };
+		A4C50BAC2005EDC000431C7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C50BAB2005EDC000431C7A /* Assets.xcassets */; };
+		A4C50BAF2005EDC000431C7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C50BAD2005EDC000431C7A /* LaunchScreen.storyboard */; };
+		A4C50BB22005EDC000431C7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C50BB12005EDC000431C7A /* main.m */; };
+		A4C50BBC2005EDC000431C7A /* EasyamapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C50BBB2005EDC000431C7A /* EasyamapTests.m */; };
+		A4C50BC72005EDC000431C7A /* EasyamapUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C50BC62005EDC000431C7A /* EasyamapUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4C50BB82005EDC000431C7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4C50B972005EDC000431C7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4C50B9E2005EDC000431C7A;
+			remoteInfo = Easyamap;
+		};
+		A4C50BC32005EDC000431C7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4C50B972005EDC000431C7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4C50B9E2005EDC000431C7A;
+			remoteInfo = Easyamap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24CFD951E0748C0434DE501D /* Pods-Easyamap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easyamap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easyamap/Pods-Easyamap.debug.xcconfig"; sourceTree = "<group>"; };
+		A419B3472005EF2C00EE2599 /* ZXBMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZXBMapViewController.h; sourceTree = "<group>"; };
+		A419B3482005EF2C00EE2599 /* ZXBMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZXBMapViewController.m; sourceTree = "<group>"; };
+		A4C50B9F2005EDC000431C7A /* Easyamap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Easyamap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C50BA22005EDC000431C7A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A4C50BA32005EDC000431C7A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A4C50BA52005EDC000431C7A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A4C50BA62005EDC000431C7A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A4C50BA92005EDC000431C7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4C50BAB2005EDC000431C7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4C50BAE2005EDC000431C7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A4C50BB02005EDC000431C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4C50BB12005EDC000431C7A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A4C50BB72005EDC000431C7A /* EasyamapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyamapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C50BBB2005EDC000431C7A /* EasyamapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyamapTests.m; sourceTree = "<group>"; };
+		A4C50BBD2005EDC000431C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4C50BC22005EDC000431C7A /* EasyamapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyamapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C50BC62005EDC000431C7A /* EasyamapUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyamapUITests.m; sourceTree = "<group>"; };
+		A4C50BC82005EDC000431C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D743E2F2D529D0A032632936 /* Pods-Easyamap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easyamap.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easyamap/Pods-Easyamap.release.xcconfig"; sourceTree = "<group>"; };
+		E78B765D1BF560327A39DCDA /* libPods-Easyamap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Easyamap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4C50B9C2005EDC000431C7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73547C18494090226B70F1EC /* libPods-Easyamap.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4C50BB42005EDC000431C7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4C50BBF2005EDC000431C7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C8B90B173B247083C8CEFDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E78B765D1BF560327A39DCDA /* libPods-Easyamap.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9043FCEACEEB146C69EA18F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24CFD951E0748C0434DE501D /* Pods-Easyamap.debug.xcconfig */,
+				D743E2F2D529D0A032632936 /* Pods-Easyamap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4C50B962005EDC000431C7A = {
+			isa = PBXGroup;
+			children = (
+				A4C50BA12005EDC000431C7A /* Easyamap */,
+				A4C50BBA2005EDC000431C7A /* EasyamapTests */,
+				A4C50BC52005EDC000431C7A /* EasyamapUITests */,
+				A4C50BA02005EDC000431C7A /* Products */,
+				9043FCEACEEB146C69EA18F7 /* Pods */,
+				7C8B90B173B247083C8CEFDC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A4C50BA02005EDC000431C7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4C50B9F2005EDC000431C7A /* Easyamap.app */,
+				A4C50BB72005EDC000431C7A /* EasyamapTests.xctest */,
+				A4C50BC22005EDC000431C7A /* EasyamapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4C50BA12005EDC000431C7A /* Easyamap */ = {
+			isa = PBXGroup;
+			children = (
+				A4C50BA22005EDC000431C7A /* AppDelegate.h */,
+				A4C50BA32005EDC000431C7A /* AppDelegate.m */,
+				A419B3472005EF2C00EE2599 /* ZXBMapViewController.h */,
+				A419B3482005EF2C00EE2599 /* ZXBMapViewController.m */,
+				A4C50BA52005EDC000431C7A /* ViewController.h */,
+				A4C50BA62005EDC000431C7A /* ViewController.m */,
+				A4C50BA82005EDC000431C7A /* Main.storyboard */,
+				A4C50BAB2005EDC000431C7A /* Assets.xcassets */,
+				A4C50BAD2005EDC000431C7A /* LaunchScreen.storyboard */,
+				A4C50BB02005EDC000431C7A /* Info.plist */,
+				A4C50BB12005EDC000431C7A /* main.m */,
+			);
+			path = Easyamap;
+			sourceTree = "<group>";
+		};
+		A4C50BBA2005EDC000431C7A /* EasyamapTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4C50BBB2005EDC000431C7A /* EasyamapTests.m */,
+				A4C50BBD2005EDC000431C7A /* Info.plist */,
+			);
+			path = EasyamapTests;
+			sourceTree = "<group>";
+		};
+		A4C50BC52005EDC000431C7A /* EasyamapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A4C50BC62005EDC000431C7A /* EasyamapUITests.m */,
+				A4C50BC82005EDC000431C7A /* Info.plist */,
+			);
+			path = EasyamapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4C50B9E2005EDC000431C7A /* Easyamap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4C50BCB2005EDC000431C7A /* Build configuration list for PBXNativeTarget "Easyamap" */;
+			buildPhases = (
+				1453967F5FE78293FDCB7552 /* [CP] Check Pods Manifest.lock */,
+				A4C50B9B2005EDC000431C7A /* Sources */,
+				A4C50B9C2005EDC000431C7A /* Frameworks */,
+				A4C50B9D2005EDC000431C7A /* Resources */,
+				9084278E7A391636DEBA8DE2 /* [CP] Embed Pods Frameworks */,
+				467324E35EA1DB6B3C871960 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Easyamap;
+			productName = Easyamap;
+			productReference = A4C50B9F2005EDC000431C7A /* Easyamap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A4C50BB62005EDC000431C7A /* EasyamapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4C50BCE2005EDC000431C7A /* Build configuration list for PBXNativeTarget "EasyamapTests" */;
+			buildPhases = (
+				A4C50BB32005EDC000431C7A /* Sources */,
+				A4C50BB42005EDC000431C7A /* Frameworks */,
+				A4C50BB52005EDC000431C7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4C50BB92005EDC000431C7A /* PBXTargetDependency */,
+			);
+			name = EasyamapTests;
+			productName = EasyamapTests;
+			productReference = A4C50BB72005EDC000431C7A /* EasyamapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A4C50BC12005EDC000431C7A /* EasyamapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4C50BD12005EDC000431C7A /* Build configuration list for PBXNativeTarget "EasyamapUITests" */;
+			buildPhases = (
+				A4C50BBE2005EDC000431C7A /* Sources */,
+				A4C50BBF2005EDC000431C7A /* Frameworks */,
+				A4C50BC02005EDC000431C7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4C50BC42005EDC000431C7A /* PBXTargetDependency */,
+			);
+			name = EasyamapUITests;
+			productName = EasyamapUITests;
+			productReference = A4C50BC22005EDC000431C7A /* EasyamapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4C50B972005EDC000431C7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = GTX1060;
+				TargetAttributes = {
+					A4C50B9E2005EDC000431C7A = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					A4C50BB62005EDC000431C7A = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A4C50B9E2005EDC000431C7A;
+					};
+					A4C50BC12005EDC000431C7A = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A4C50B9E2005EDC000431C7A;
+					};
+				};
+			};
+			buildConfigurationList = A4C50B9A2005EDC000431C7A /* Build configuration list for PBXProject "Easyamap" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4C50B962005EDC000431C7A;
+			productRefGroup = A4C50BA02005EDC000431C7A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4C50B9E2005EDC000431C7A /* Easyamap */,
+				A4C50BB62005EDC000431C7A /* EasyamapTests */,
+				A4C50BC12005EDC000431C7A /* EasyamapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4C50B9D2005EDC000431C7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C50BAF2005EDC000431C7A /* LaunchScreen.storyboard in Resources */,
+				A4C50BAC2005EDC000431C7A /* Assets.xcassets in Resources */,
+				A4C50BAA2005EDC000431C7A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4C50BB52005EDC000431C7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4C50BC02005EDC000431C7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1453967F5FE78293FDCB7552 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Easyamap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		467324E35EA1DB6B3C871960 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Easyamap/Pods-Easyamap-resources.sh",
+				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
+				"${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMapNavi.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Easyamap/Pods-Easyamap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9084278E7A391636DEBA8DE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Easyamap/Pods-Easyamap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4C50B9B2005EDC000431C7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C50BA72005EDC000431C7A /* ViewController.m in Sources */,
+				A4C50BB22005EDC000431C7A /* main.m in Sources */,
+				A419B3492005EF2C00EE2599 /* ZXBMapViewController.m in Sources */,
+				A4C50BA42005EDC000431C7A /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4C50BB32005EDC000431C7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C50BBC2005EDC000431C7A /* EasyamapTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4C50BBE2005EDC000431C7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C50BC72005EDC000431C7A /* EasyamapUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A4C50BB92005EDC000431C7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4C50B9E2005EDC000431C7A /* Easyamap */;
+			targetProxy = A4C50BB82005EDC000431C7A /* PBXContainerItemProxy */;
+		};
+		A4C50BC42005EDC000431C7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4C50B9E2005EDC000431C7A /* Easyamap */;
+			targetProxy = A4C50BC32005EDC000431C7A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A4C50BA82005EDC000431C7A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4C50BA92005EDC000431C7A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A4C50BAD2005EDC000431C7A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4C50BAE2005EDC000431C7A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4C50BC92005EDC000431C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A4C50BCA2005EDC000431C7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4C50BCC2005EDC000431C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24CFD951E0748C0434DE501D /* Pods-Easyamap.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MPZS63F874;
+				INFOPLIST_FILE = Easyamap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kk.EasyiOSMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A4C50BCD2005EDC000431C7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D743E2F2D529D0A032632936 /* Pods-Easyamap.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MPZS63F874;
+				INFOPLIST_FILE = Easyamap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kk.EasyiOSMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A4C50BCF2005EDC000431C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EasyamapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kk.EasyamapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Easyamap.app/Easyamap";
+			};
+			name = Debug;
+		};
+		A4C50BD02005EDC000431C7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EasyamapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kk.EasyamapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Easyamap.app/Easyamap";
+			};
+			name = Release;
+		};
+		A4C50BD22005EDC000431C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EasyamapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kk.EasyamapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Easyamap;
+			};
+			name = Debug;
+		};
+		A4C50BD32005EDC000431C7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EasyamapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kk.EasyamapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Easyamap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4C50B9A2005EDC000431C7A /* Build configuration list for PBXProject "Easyamap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4C50BC92005EDC000431C7A /* Debug */,
+				A4C50BCA2005EDC000431C7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4C50BCB2005EDC000431C7A /* Build configuration list for PBXNativeTarget "Easyamap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4C50BCC2005EDC000431C7A /* Debug */,
+				A4C50BCD2005EDC000431C7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4C50BCE2005EDC000431C7A /* Build configuration list for PBXNativeTarget "EasyamapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4C50BCF2005EDC000431C7A /* Debug */,
+				A4C50BD02005EDC000431C7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4C50BD12005EDC000431C7A /* Build configuration list for PBXNativeTarget "EasyamapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4C50BD22005EDC000431C7A /* Debug */,
+				A4C50BD32005EDC000431C7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A4C50B972005EDC000431C7A /* Project object */;
+}

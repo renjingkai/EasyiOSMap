@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bc9-op-ket">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="深圳科技园" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HdF-i3-AAj">
+                                <rect key="frame" x="127.5" y="164" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="ucP-Q8-b11"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLu-2Y-ocq">
+                                <rect key="frame" x="55.5" y="169" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-Ri-V3q">
+                                <rect key="frame" x="156" y="214" width="62" height="30"/>
+                                <state key="normal" title="进入地图"/>
+                                <connections>
+                                    <action selector="goToMapButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bHU-uh-0d8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zLo-Ri-V3q" firstAttribute="centerX" secondItem="HdF-i3-AAj" secondAttribute="centerX" id="Bgn-0t-4P3"/>
+                            <constraint firstItem="HdF-i3-AAj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GIz-CQ-vDK"/>
+                            <constraint firstItem="HdF-i3-AAj" firstAttribute="leading" secondItem="pLu-2Y-ocq" secondAttribute="trailing" constant="20" id="YBh-mJ-Ggo"/>
+                            <constraint firstItem="zLo-Ri-V3q" firstAttribute="top" secondItem="HdF-i3-AAj" secondAttribute="bottom" constant="20" id="hcs-PI-i5Z"/>
+                            <constraint firstItem="pLu-2Y-ocq" firstAttribute="centerY" secondItem="HdF-i3-AAj" secondAttribute="centerY" id="lLB-yt-pDd"/>
+                            <constraint firstItem="HdF-i3-AAj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="rto-bn-C4W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nk4-3x-zfD"/>
+                    <connections>
+                        <outlet property="destinationTextfield" destination="HdF-i3-AAj" id="Ds4-B1-3KU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456.80000000000001" y="118.29085457271366"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aGi-50-ddB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bc9-op-ket" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N9p-C2-Mtn">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EOQ-DD-d1d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDI-8v-fqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-422" y="118"/>
+        </scene>
+    </scenes>
+</document>
