@@ -9,18 +9,18 @@ pod 'AMapLocation'</br>
 pod 'AMapNavi'</br>
 pod 'SVProgressHUD'</br>
 - 由于定位和导航涉及到用户隐私，需要在plist中增加如下字段</br>
-\<key\>gtLSApplicationQueriesSchemes\<key\></br>
-<array></br>
-<string>iosamap</string></br>
-</array></br>
-<key>LSRequiresIPhoneOS</key></br>
-<true/></br>
-<key>NSLocationAlwaysUsageDescription</key></br>
-<string>App需要您的同意,才能始终访问位置</string></br>
-<key>NSLocationUsageDescription</key></br>
-<string>App需要您的同意,才能访问位置</string></br>
-<key>NSLocationWhenInUseUsageDescription</key></br>
-<string>App需要您的同意,才能在使用期间访问位置</string></br>
+\<key\>LSApplicationQueriesSchemes\</key\></br>
+\<array\></br>
+\<string\>iosamap\</string\></br>
+\</array\></br>
+\<key\>LSRequiresIPhoneOS\</key\></br>
+\<true/\></br>
+\<key\>NSLocationAlwaysUsageDescription\</key\></br>
+\<string\>App需要您的同意,才能始终访问位置\</string\></br>
+\<key\>NSLocationUsageDescription\</key\></br>
+\<string\>App需要您的同意,才能访问位置\</string\></br>
+\<key\>NSLocationWhenInUseUsageDescription\</key\></br>
+\<string\>App需要您的同意,才能在使用期间访问位置\</string\></br>
 
 - 一个项目的BundleID对应一个高德地图apiKey！</br>
 请在高德开放平台获取 http://www.lbs.amap.com/dev/key/app</br>
