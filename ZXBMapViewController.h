@@ -10,7 +10,15 @@
 
 @interface ZXBMapViewController :UIViewController
 
+/**
+ 传入你要去的目的地字符串，模糊的地址也可以！
+ 如深圳医院，然后他会进一步提示用户选择是深圳哪个医院。
+ */
 @property (nonatomic,strong) NSString *destinationString;
 
+/**
+ 是否隐藏顶部状态栏（默认隐藏）
+ */
+@property (nonatomic,assign) BOOL showStatusBar;
 
 @end

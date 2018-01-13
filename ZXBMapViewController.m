@@ -27,37 +27,37 @@
 
 
 /**
- 用户选中的位置
+ 用户选中的精确位置
  */
 @property (nonatomic,strong) NSString *selectedDestinationString;
-/**
- 地图View
- */
 @property (nonatomic,strong) MAMapView *mapView;
-
-/**
- <#Description#>
- */
 @property (nonatomic,strong) AMapSearchAPI *search;
 
 /**
  目的地poiArray
  */
 @property (nonatomic,strong) NSArray<AMapPOI *> *poiArray;
-
-/**
- <#Description#>
- */
 @property (nonatomic,strong) AMapLocationManager *locationManager;
-
 @property (nonatomic,assign) BOOL isZoomIn;
 
+/**
+ 半透明蒙版
+ */
 @property (nonatomic,strong) UIView *maskView;
 
+/**
+ 选择精确地址的pickerview
+ */
 @property (nonatomic,strong) UIPickerView *pickerView;
 
+/**
+ pickerview上面的状态栏
+ */
 @property (nonatomic,strong) UIView *indicatorView;
 
+/**
+ 记录pickerview选择了第几行
+ */
 @property (nonatomic,assign) NSInteger selectedRow;
 
 @end
@@ -74,44 +74,16 @@
     //搜索POI
     [self searchPOIWithKeyWordString:self.destinationString];
 }
+#pragma mark 隐藏顶部状态栏
 - (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-#pragma mark - 调用外部地图
-- (void)gotoMapApp{
-    NSString *address = [self.selectedDestinationString stringByAppendingString:self.destinationString];
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
-        // 高德地图
-        // 起点为“我的位置”，终点为后台返回的address
-        NSString *urlString = [[NSString stringWithFormat:@"iosamap://path?sourceApplication=applicationName&sid=BGVIS1&sname=%@&did=BGVIS2&dname=%@&dev=0&t=0",@"我的位置",address] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-    }else if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"http://maps.apple.com"]]){
-        // 苹果地图
-        // 起点为“我的位置”，终点为后台返回的address
-        NSString *urlString = [[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@",address] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-    }else{
-        // 快递员没有安装上面三种地图APP，弹窗提示安装地图APP
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请下载" message:@"请下载Apple地图或者高德地图" preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *confirmAlertAction = [UIAlertAction actionWithTitle:@"去AppStore下载地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSString *urlString = [@"https://itunes.apple.com/cn/app/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-%E7%B2%BE%E5%87%86%E5%9C%B0%E5%9B%BE-%E5%AF%BC%E8%88%AA%E5%BF%85%E5%A4%87-%E6%99%BA%E8%83%BD%E4%BA%A4%E9%80%9A%E5%AF%BC%E8%88%AA%E5%9C%B0%E5%9B%BE/id461703208?mt=8" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-        }];
-        UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        [alertController addAction:confirmAlertAction];
-        [alertController addAction:cancelAlertAction];
-        [self presentViewController:alertController animated:YES completion:^{
-            
-        }];
+    if (self.showStatusBar == NO) {
+        return YES;
     }
+    return NO;
 }
 
-
-#pragma mark - 设置地图
+#pragma mark 设置地图
 -(void)setUpMap{
-//    [self showInfoWithStatus:@"正在搜索目的地" withMask:NO];
     ///地图需要v4.5.0及以上版本才必须要打开此选项（v4.5.0以下版本，需要手动配置info.plist）
     [AMapServices sharedServices].enableHTTPS = YES;
     //下方的导航按钮
@@ -119,7 +91,7 @@
     naviButton.frame = CGRectMake(0, kScreenHeight - 50, kScreenWidth, 50);
     [naviButton addTarget:self action:@selector(gotoMapApp) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:naviButton];
-    ///地图
+    //地图mapView
     self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 50)];
     [self.view addSubview:self.mapView];
     //左上角关闭按钮
@@ -158,7 +130,7 @@
     [zoomButton setImage:[UIImage imageNamed:@"zoomin"] forState:UIControlStateNormal];
     [zoomButton addTarget:self action:@selector(zoomButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [rightPanelView addSubview:zoomButton];
-    ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
+    //如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
     self.mapView.showsUserLocation = YES;
     self.mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
     self.mapView.delegate = self;
@@ -166,16 +138,54 @@
     self.mapView.rotateEnabled = NO;
   
 }
+#pragma mark 持续获取当前用户的位置
 -(void)getCurrentLocation{
     self.locationManager = [[AMapLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
 }
-#pragma mark - 根据地址信息来搜索POI
+#pragma mark 调用外部地图导航
+/**
+ 打开次序为 高德地图、苹果地图，如果没有则提示下载高德地图！
+ 需要在plist中增加如下字段：
+ <key>LSApplicationQueriesSchemes</key>
+ <array>
+ <string>iosamap</string>
+ </array>
+ */
+- (void)gotoMapApp{
+    NSString *fullAddress = [self.destinationString stringByAppendingString:self.selectedDestinationString];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
+        // 高德地图
+        // 起点为“我的位置”，终点为后台返回的address
+        NSString *urlString = [[NSString stringWithFormat:@"iosamap://path?sourceApplication=applicationName&sid=BGVIS1&sname=%@&did=BGVIS2&dname=%@&dev=0&t=0",@"我的位置",fullAddress] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+    }else if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"http://maps.apple.com"]]){
+        // 苹果地图
+        // 起点为“我的位置”，终点为后台返回的address
+        NSString *urlString = [[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@",fullAddress] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+    }else{
+        // 快递员没有安装上面三种地图APP，弹窗提示安装地图APP
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请下载" message:@"请下载Apple地图或者高德地图" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *confirmAlertAction = [UIAlertAction actionWithTitle:@"去AppStore下载地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSString *urlString = [@"https://itunes.apple.com/cn/app/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-%E7%B2%BE%E5%87%86%E5%9C%B0%E5%9B%BE-%E5%AF%BC%E8%88%AA%E5%BF%85%E5%A4%87-%E6%99%BA%E8%83%BD%E4%BA%A4%E9%80%9A%E5%AF%BC%E8%88%AA%E5%9C%B0%E5%9B%BE/id461703208?mt=8" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+        }];
+        UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertController addAction:confirmAlertAction];
+        [alertController addAction:cancelAlertAction];
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
+    }
+}
+#pragma mark 根据模糊地址信息，搜索精确的地址。并且返回POI（通过AMapSearchDelegate代理返回）
 -(void)searchPOIWithKeyWordString:(NSString *)keyWordString{
     AMapPOIKeywordsSearchRequest *request = [[AMapPOIKeywordsSearchRequest alloc] init];
 #warning 一个项目的BundleID对应一个高德地图apiKey，请在高德开放平台获取 http://lbs.amap.com/dev/key/app
-    [AMapServices sharedServices].apiKey = @"你的key";
     [AMapServices sharedServices].apiKey = @"d0ee27ed683777fc6c34e9fad36bca5c";
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
@@ -183,27 +193,24 @@
     [self.search AMapPOIKeywordsSearch:request];
 }
 
-#pragma mark - 显示选择目的地的PickerView
+#pragma mark 显示选择目的地的PickerView
 -(void)showDestinationPickerViewWithDataArray:(NSArray *)dataArray{
     [self showPickerViewWithArray:dataArray];
 }
 
 
-#pragma mark - 添加目的地的大头针
+#pragma mark 添加目的地的大头针
 - (void)setUpDestinationPointAnnotationWithAMapPOI:(AMapPOI *)poi{
     MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
     pointAnnotation.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
     pointAnnotation.title = poi.name;
     pointAnnotation.subtitle = [NSString stringWithFormat:@"%@%@",poi.address,poi.tel];
     [_mapView addAnnotation:pointAnnotation];
-    [self startNavigation];
+    [self searchDrivingRoute];
 }
--(void)startNavigation{
-//    if (self.currentLocation == nil) {
-//        [self showErrorWithStatus:@"稍等...正在获取当前位置" withMask:YES];
-//        return;
-//    }
-    AMapPOI *poi = self.poiArray[0];
+#pragma mark
+-(void)searchDrivingRoute{
+    AMapPOI *poi = self.poiArray[self.selectedRow];
     MAPointAnnotation *destinationAnnotation = [[MAPointAnnotation alloc] init];
     destinationAnnotation.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
 
@@ -224,17 +231,7 @@
     NSInteger coordinatesArrayCount = coordinatesArray.count;
         //构造折线数据对象
         CLLocationCoordinate2D commonPolylineCoords[coordinatesArrayCount/2];
-//        commonPolylineCoords[0].latitude = 39.832136;
-//        commonPolylineCoords[0].longitude = 116.34095;
-//
-//        commonPolylineCoords[1].latitude = 39.832136;
-//        commonPolylineCoords[1].longitude = 116.42095;
-//
-//        commonPolylineCoords[2].latitude = 39.902136;
-//        commonPolylineCoords[2].longitude = 116.42095;
-//
-//        commonPolylineCoords[3].latitude = 39.902136;
-//        commonPolylineCoords[3].longitude = 116.44095;
+
 
     for (int i = 0; i < coordinatesArrayCount-1; i++) {
         commonPolylineCoords[i/2].latitude = [coordinatesArray[i] floatValue];
@@ -275,13 +272,8 @@
     [self addPolylineInMapViewWithCoordinatesArray:pathStepStringArrayM];
 
 }
-
-- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error
-{
-
-}
-
-#pragma mark - AMapSearchDelegate
+#pragma mark - 高德地图相关的代理（都在这里了）
+#pragma mark AMapSearchDelegate
 /* POI 搜索回调. */
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
@@ -300,12 +292,8 @@
     [self showDestinationPickerViewWithDataArray:destinationArrayM];
     //解析response获取POI信息，具体解析见 Demo
 }
-#pragma mark - AMapLocationManagerDelegate
-- (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location
-{
-//    self.currentLocation = location;
-}
-#pragma mark - AMapAnnotationDelegate
+
+#pragma mark AMapAnnotationDelegate
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation
 {
     
@@ -330,7 +318,7 @@
     }
     return nil;
 }
-#pragma mark - MAMapViewDelegate
+#pragma mark MAMapViewDelegate
 - (MAOverlayRenderer *)mapView:(MAMapView *)mapView rendererForOverlay:(id <MAOverlay>)overlay
 {
     if ([overlay isKindOfClass:[MAPolyline class]])
@@ -344,7 +332,7 @@
     }
     return nil;
 }
-#pragma mark SVProgressHUD
+#pragma mark - 基于SVProgressHUD的二次封装
 -(void)showWithStatus:(NSString *)string withMask:(BOOL)withMask{
     if (withMask == true) {
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
@@ -398,6 +386,7 @@
 -(void)hideAllHUD{
     [SVProgressHUD dismiss];
 }
+#pragma mark - 快速生成带有标准样式的UI
 #pragma mark 快速生成button
 -(UIButton *)makeButtonWithTitleString:(NSString *)titleString textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor textAlignment:(UIControlContentHorizontalAlignment *)textAlignment cornerRadius:(CGFloat)cornerRadius{
     UIButton *button = [UIButton new];
@@ -424,7 +413,7 @@
     [[UIApplication sharedApplication]setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
-#pragma mark - UI控件的点击事件
+#pragma mark - 地图UI控件的点击事件
 -(void)goBackCurrentLocationButtonTouched{
     [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
     [self.mapView reloadMap];
@@ -443,6 +432,7 @@
         [self showSuccessWithStatus:@"实时路况已关闭" withMask:NO];
     }
 }
+
 -(void)showPickerViewWithArray:(NSArray *)array{
     [self showMaskView];
     //先移除
@@ -458,15 +448,17 @@
     self.indicatorView.backgroundColor = [UIColor whiteColor];
     self.indicatorView.frame = CGRectMake(0, (kScreenHeight / 2) - 44, kScreenWidth, 44);
     [self.maskView addSubview:self.indicatorView];
+    UIView *seperatorView = [[UIView alloc]initWithFrame:CGRectMake(5, 42, kScreenWidth-10, 2)];
+    seperatorView.backgroundColor = kLightGrayColor;
+    [self.indicatorView addSubview:seperatorView];
     //左边的按钮
     UIButton *leftIndicatorButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
     [leftIndicatorButton setImage:[UIImage imageNamed:@"Cancel"] forState:UIControlStateNormal];
     [leftIndicatorButton addTarget:self action:@selector(maskViewTouched) forControlEvents:UIControlEventTouchUpInside];
     [self.indicatorView addSubview:leftIndicatorButton];
     //右边的按钮
-    UIButton *rightIndicatorButton = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 44, 0, 44, 44)];
-    [rightIndicatorButton setTitle:@"完成" forState:UIControlStateNormal];
-    [rightIndicatorButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIButton *rightIndicatorButton = [self makeButtonWithTitleString:@"确定" textColor:kBlackColor backgroundColor:nil textAlignment:UIControlContentHorizontalAlignmentCenter cornerRadius:0];
+    rightIndicatorButton.frame = CGRectMake(kScreenWidth - 60, 0, 60, 44);
     [rightIndicatorButton addTarget:self action:@selector(poiSelected) forControlEvents:UIControlEventTouchUpInside];
     [self.indicatorView addSubview:rightIndicatorButton];
 }
@@ -495,6 +487,8 @@
     return self.poiArray.count;
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    AMapPOI *poi = self.poiArray[row];
+    self.selectedDestinationString = poi.name;
     self.selectedRow = row;
 }
 
