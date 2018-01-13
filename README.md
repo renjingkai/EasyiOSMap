@@ -45,3 +45,4 @@ pod 'SVProgressHUD'</br>
 - 别忘了把切图文件夹中的图标放到Assets.xcassets中
 - 视频演示（复制到浏览器地址栏播放）</br>
 http://www.ac-rxWgcQwd.clouddn.com/fbacc4da398ec86dbbd0.mp4
+![Alt text](https://github.com/renjingkai/EasyiOSMap/blob/master/GifDemo.gif)
