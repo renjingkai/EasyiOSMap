@@ -1,5 +1,9 @@
 # 超好集成的EasyiOSMap-基于高德地图（界面优美，功能强大）
 ![Alt text](https://github.com/renjingkai/EasyiOSMap/blob/master/screenshot.jpg)
+- 视频演示（复制到浏览器地址栏播放，清晰流畅）</br>
+http://www.ac-rxWgcQwd.clouddn.com/fbacc4da398ec86dbbd0.mp4
+- GIF演示（第一次播放有卡顿，需要缓冲）
+![Alt text](https://github.com/renjingkai/EasyiOSMap/blob/master/GifDemo.gif)
 ## 使用方式：
 - 将ZXBMapViewController.h，ZXBMapViewController.m文件还有切图文件夹中的图标加入到项目,并且复制以下代码
 ```
@@ -43,6 +47,4 @@ pod 'SVProgressHUD'</br>
 </array>
 ```
 - 别忘了把切图文件夹中的图标放到Assets.xcassets中
-- 视频演示（复制到浏览器地址栏播放）</br>
-http://www.ac-rxWgcQwd.clouddn.com/fbacc4da398ec86dbbd0.mp4
-![Alt text](https://github.com/renjingkai/EasyiOSMap/blob/master/GifDemo.gif)
+
