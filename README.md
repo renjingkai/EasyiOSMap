@@ -2,7 +2,7 @@
 ![Alt text](https://github.com/renjingkai/EasyiOSMap/blob/master/screenshot.jpg)
 - 视频演示（复制到浏览器地址栏播放，清晰流畅）</br>
 http://www.ac-rxWgcQwd.clouddn.com/fbacc4da398ec86dbbd0.mp4
-- GIF演示（第一次播放有卡顿，需要缓冲）</br>
+- GIF演示（第一次播放有卡顿，需要缓冲，safari浏览器无法播放）</br>
 ![Alt text](https://github.com/renjingkai/EasyiOSMap/blob/master/GifDemo.gif)
 ## 使用方式：
 - 将ZXBMapViewController.h，ZXBMapViewController.m文件还有切图文件夹中的图标加入到项目,并且复制以下代码
@@ -26,8 +26,6 @@ mapVC.destinationString = @“深圳医院”;
 pod 'AMap3DMap'</br>
 pod 'AMapSearch'</br>
 pod 'AMapLocation'</br>
-pod 'AMapNavi'</br>
-pod 'SVProgressHUD'</br>
 ```
 - 由于定位涉及到用户隐私，需要在plist中增加如下字段</br>
 ```

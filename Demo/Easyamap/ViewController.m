@@ -24,6 +24,7 @@
 }
 - (IBAction)goToMapButtonTouch:(UIButton *)sender {
     ZXBMapViewController *mapVC = [ZXBMapViewController new];
+    mapVC.showStatusBar = YES;
     mapVC.destinationString = self.destinationTextfield.text;
     [self showViewController:mapVC sender:nil];
     

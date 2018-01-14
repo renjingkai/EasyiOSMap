@@ -11,8 +11,7 @@
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
-#import <AMapNavi/AMapNaviKit/AMapNaviKit.h>
-#import <SVProgressHUD.h>
+
 
 
 #define kRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
@@ -84,6 +83,7 @@
 
 #pragma mark 设置地图
 -(void)setUpMap{
+    [self showHUDWithString:@"加载中" timeIntervel:NSIntegerMax];
     ///地图需要v4.5.0及以上版本才必须要打开此选项（v4.5.0以下版本，需要手动配置info.plist）
     [AMapServices sharedServices].enableHTTPS = YES;
     //下方的导航按钮
@@ -197,8 +197,6 @@
 -(void)showDestinationPickerViewWithDataArray:(NSArray *)dataArray{
     [self showPickerViewWithArray:dataArray];
 }
-
-
 #pragma mark 添加目的地的大头针
 - (void)setUpDestinationPointAnnotationWithAMapPOI:(AMapPOI *)poi{
     MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
@@ -208,7 +206,7 @@
     [_mapView addAnnotation:pointAnnotation];
     [self searchDrivingRoute];
 }
-#pragma mark
+#pragma mark 搜索驾车路线
 -(void)searchDrivingRoute{
     AMapPOI *poi = self.poiArray[self.selectedRow];
     MAPointAnnotation *destinationAnnotation = [[MAPointAnnotation alloc] init];
@@ -237,7 +235,7 @@
         commonPolylineCoords[i/2].latitude = [coordinatesArray[i] floatValue];
         commonPolylineCoords[i/2].longitude = [coordinatesArray[i+1] floatValue];
     }
-    AMapPOI *poi = self.poiArray[0];
+//    AMapPOI *poi = self.poiArray[0];
 //    commonPolylineCoords[coordinatesArrayCount/2].latitude = poi.location.latitude;
 //    commonPolylineCoords[coordinatesArrayCount/2].longitude = poi.location.longitude;
 //        //构造折线对象
@@ -277,11 +275,11 @@
 /* POI 搜索回调. */
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
-    [self hideAllHUD];
+    [self.maskView removeFromSuperview];
     //如果poi个数为0，就显示无法找到目的地
     if (response.pois.count == 0)
     {
-        [self showInfoWithStatus:@"无法找到目的地" withMask:YES];
+        [self showHUDWithString:@"无法找到目的地" timeIntervel:2.0];
         return;
     }
     NSMutableArray *destinationArrayM = [NSMutableArray array];
@@ -332,60 +330,60 @@
     }
     return nil;
 }
-#pragma mark - 基于SVProgressHUD的二次封装
--(void)showWithStatus:(NSString *)string withMask:(BOOL)withMask{
-    if (withMask == true) {
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    }else{
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
-    }
-    [SVProgressHUD showWithStatus:string];
-    [SVProgressHUD dismissWithDelay:2.5];
-}
--(void)showWithStatusNotAutoDismiss:(NSString *)string withMask:(BOOL)withMask{
-    if (withMask == true) {
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    }else{
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
-    }
-    [SVProgressHUD showWithStatus:string];
-}
--(void)showInfoWithStatus:(NSString *)string withMask:(BOOL)withMask{
-    if (withMask == true) {
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    }else{
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
-    }
-    [SVProgressHUD showInfoWithStatus:string];
-}
--(void)showSuccessWithStatus:(NSString *)string withMask:(BOOL)withMask{
-    if (withMask == true) {
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    }else{
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
-    }
-    [SVProgressHUD showSuccessWithStatus:string];
-    
-}
--(void)showErrorWithStatus:(NSString *)string withMask:(BOOL)withMask{
-    if (withMask == true) {
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    }else{
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
-    }
-    [SVProgressHUD showErrorWithStatus:string];
-}
--(void)showProgress:(float)progressfloat withStatus:(NSString *)statusString withMask:(BOOL)withMask{
-    if (withMask == true) {
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    }else{
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
-    }
-    [SVProgressHUD showProgress:progressfloat status:statusString];
-}
--(void)hideAllHUD{
-    [SVProgressHUD dismiss];
-}
+//#pragma mark - 基于SVProgressHUD的二次封装
+//-(void)showWithStatus:(NSString *)string withMask:(BOOL)withMask{
+//    if (withMask == true) {
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+//    }else{
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+//    }
+//    [SVProgressHUD showWithStatus:string];
+//    [SVProgressHUD dismissWithDelay:2.5];
+//}
+//-(void)showWithStatusNotAutoDismiss:(NSString *)string withMask:(BOOL)withMask{
+//    if (withMask == true) {
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+//    }else{
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+//    }
+//    [SVProgressHUD showWithStatus:string];
+//}
+//-(void)showInfoWithStatus:(NSString *)string withMask:(BOOL)withMask{
+//    if (withMask == true) {
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+//    }else{
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+//    }
+//    [SVProgressHUD showInfoWithStatus:string];
+//}
+//-(void)showSuccessWithStatus:(NSString *)string withMask:(BOOL)withMask{
+//    if (withMask == true) {
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+//    }else{
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+//    }
+//    [SVProgressHUD showSuccessWithStatus:string];
+//
+//}
+//-(void)showErrorWithStatus:(NSString *)string withMask:(BOOL)withMask{
+//    if (withMask == true) {
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+//    }else{
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+//    }
+//    [SVProgressHUD showErrorWithStatus:string];
+//}
+//-(void)showProgress:(float)progressfloat withStatus:(NSString *)statusString withMask:(BOOL)withMask{
+//    if (withMask == true) {
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+//    }else{
+//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+//    }
+//    [SVProgressHUD showProgress:progressfloat status:statusString];
+//}
+//-(void)hideAllHUD{
+//    [SVProgressHUD dismiss];
+//}
 #pragma mark - 快速生成带有标准样式的UI
 #pragma mark 快速生成button
 -(UIButton *)makeButtonWithTitleString:(NSString *)titleString textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor textAlignment:(UIControlContentHorizontalAlignment *)textAlignment cornerRadius:(CGFloat)cornerRadius{
@@ -408,6 +406,13 @@
     label.textAlignment = textAlignment;
     return label;
 }
+#pragma mark 快速给UI控件设置圆角&边框等属性
+- (void)makeUIWithCornerRadiusAndBorder:(UIView *)object CornerRadius:(NSInteger)cornerRadius borderColor:(UIColor *)borderColor borderWidth:(NSInteger)borderWidth{
+    object.layer.masksToBounds = YES;
+    object.layer.cornerRadius = cornerRadius;
+    object.layer.borderColor = borderColor.CGColor;
+    object.layer.borderWidth = borderWidth;
+}
 -(void)closeButtonTouched{
     [self.navigationController popViewControllerAnimated:YES];
     [[UIApplication sharedApplication]setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
@@ -425,14 +430,45 @@
     if (self.mapView.showTraffic == NO) {
         self.mapView.showTraffic = YES;
         [signalButton setImage:[UIImage imageNamed:@"signalLightOn"] forState:UIControlStateNormal];
-        [self showSuccessWithStatus:@"实时路况已开启" withMask:NO];
+        [self showHUDWithString:@"🚥实时路况已开启" timeIntervel:1.2];
     }else{
         self.mapView.showTraffic = NO;
         [signalButton setImage:[UIImage imageNamed:@"signalLightOff"] forState:UIControlStateNormal];
-        [self showSuccessWithStatus:@"实时路况已关闭" withMask:NO];
+        [self showHUDWithString:@"🚥实时路况已关闭" timeIntervel:1.2];
     }
 }
-
+#pragma mark - 一些自定义的HUD和PickerView
+#pragma mark 显示一个半透明的蒙版
+-(void)showMaskView{
+    //创建一个蒙版
+    self.maskView = [[UIView alloc]initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
+    //指定特定component的alpha，添加到父View上并不会影响子View
+    self.maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    //获取当前的keyWindow添加模板
+    [[UIApplication sharedApplication].keyWindow addSubview:self.maskView];
+    //添加点击手势
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(maskViewTouched)];
+    [self.maskView addGestureRecognizer:tapGesture];
+}
+#pragma mark 移除半透明蒙版
+-(void)maskViewTouched{
+    [self.maskView removeFromSuperview];
+}
+#pragma mark 自定义HUD
+-(void)showHUDWithString:(NSString *)string timeIntervel:(NSInteger)timeIntervel{
+    [self showMaskView];
+    UILabel *textLabel = [self makeLabelWithString:string textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter];
+    textLabel.adjustsFontSizeToFitWidth = YES;
+    textLabel.alpha = 0.7;
+    [self makeUIWithCornerRadiusAndBorder:textLabel CornerRadius:8 borderColor:nil borderWidth:0];
+    textLabel.backgroundColor = [UIColor blackColor];
+    textLabel.frame = CGRectMake(kScreenWidth/2 - 100, kScreenHeight/2 - 25, 200, 50);
+    [self.maskView addSubview:textLabel];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeIntervel * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.maskView removeFromSuperview];
+    });
+}
+#pragma mark 自定义的PickerView
 -(void)showPickerViewWithArray:(NSArray *)array{
     [self showMaskView];
     //先移除
@@ -461,22 +497,6 @@
     rightIndicatorButton.frame = CGRectMake(kScreenWidth - 60, 0, 60, 44);
     [rightIndicatorButton addTarget:self action:@selector(poiSelected) forControlEvents:UIControlEventTouchUpInside];
     [self.indicatorView addSubview:rightIndicatorButton];
-}
-#pragma mark 显示一个半透明的蒙版
--(void)showMaskView{
-    //创建一个蒙版
-    self.maskView = [[UIView alloc]initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
-    //指定特定component的alpha，添加到父View上并不会影响子View
-    self.maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-    //获取当前的keyWindow添加模板
-    [[UIApplication sharedApplication].keyWindow addSubview:self.maskView];
-    //添加点击手势
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(maskViewTouched)];
-    [self.maskView addGestureRecognizer:tapGesture];
-}
-#pragma mark 移除半透明蒙版
--(void)maskViewTouched{
-    [self.maskView removeFromSuperview];
 }
 #pragma mark - UIPickerViewDelegate&Datasource
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{

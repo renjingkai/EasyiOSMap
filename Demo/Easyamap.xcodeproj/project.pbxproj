@@ -319,8 +319,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Easyamap/Pods-Easyamap-resources.sh",
 				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
-				"${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMapNavi.bundle",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
