@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "418"
             endingLineNumber = "418"
-            landmarkName = "-closeButtonTouched"
+            landmarkName = "-showPickerViewWithArray:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "518"
             endingLineNumber = "518"
-            landmarkName = "-pickerView:titleForRow:forComponent:"
+            landmarkName = "-mapLayerButtonTouched"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "512"
             endingLineNumber = "512"
-            landmarkName = "-pickerView:didSelectRow:inComponent:"
+            landmarkName = "-mapLayerButtonTouched"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "511"
             endingLineNumber = "511"
-            landmarkName = "-pickerView:didSelectRow:inComponent:"
+            landmarkName = "-mapLayerButtonTouched"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
